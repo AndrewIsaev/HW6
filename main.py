@@ -1,25 +1,22 @@
-import random
+# import file with functions
+from functions import *
 
-with open("words.txt") as file:
-    print(file.read())
+# define variables
+WORDS_FILE = "words.txt"
+HISTORY_FILE = "history.txt"
+score = 0
+# name request
+print("Введите ваше имя")
+user_name = input()
+for i in range(count_words_in_file(WORDS_FILE)):
+    print(f"Угадайте слово: {shuffle_letters(chose_word(WORDS_FILE, i))}")
+    user_answer = input()
+    if user_answer == chose_word(WORDS_FILE, i):
+        score += 10
+        print("Верно! Вы получаете 10 очков.")
+    else:
+        print(f"Неверно! Верный ответ – {chose_word(WORDS_FILE, i)}.")
+write_history(user_name, score)
+game_amount, max_total_score = get_statistics(HISTORY_FILE)
+print_statistics(game_amount, max_total_score)
 
-
-def greeting():
-    print("Введите ваше имя")
-    user_name = input()
-    return user_name
-
-
-def rearranging_letters(word):
-    """
-    Перемешивает буквы в слове
-    :return:
-    """
-    word_list = [symbol for symbol in word]
-    random.shuffle(word_list)
-    rearranging_word = "".join(word_list)
-
-    return rearranging_word
-
-
-print(rearranging_letters("Привет"))
