@@ -1,12 +1,11 @@
 import random
 
 
-def count_words_in_file(file_name):
+def count_words_in_file(file_name: str):
     """
-    Count lines in file
-    :param file_name (str):file name
-    :return: int
-        quantity of line in file
+    Count quantity of lines on file
+    :param file_name:  name of file
+    :return: len`s quantity
     """
     counter_line = 0
     with open(file_name) as file:
@@ -15,7 +14,7 @@ def count_words_in_file(file_name):
     return counter_line
 
 
-def shuffle_letters(word):
+def shuffle_letters(word: str):
     """
     Shuffle letters in word
     :param word: str
@@ -28,7 +27,7 @@ def shuffle_letters(word):
     return shuffle_word
 
 
-def chose_word(file_name, word_number):
+def chose_word(file_name: str, word_number: int):
     """
     Choose word from file with index
     :param file_name: str
@@ -42,7 +41,7 @@ def chose_word(file_name, word_number):
     return words[word_number]
 
 
-def write_history(name, score):
+def write_history(name: str, score: int):
     """
     Write history to file
     :param name: str
@@ -53,7 +52,7 @@ def write_history(name, score):
         stats.write(f"{name} {score}\n")
 
 
-def get_statistics(file_name):
+def get_statistics(file_name: str):
     """
     From file with history get amount of games and max score
     :param file_name: str
@@ -66,7 +65,7 @@ def get_statistics(file_name):
     return len(score_list), max(score_list)
 
 
-def print_statistics(total_games, max_score):
+def print_statistics(total_games: int, max_score: int):
     """
     Print statistic
     :param total_games: int
