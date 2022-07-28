@@ -1,3 +1,4 @@
+"""Functions for game"""
 import random
 
 
