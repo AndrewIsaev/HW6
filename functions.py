@@ -2,19 +2,6 @@
 import random
 
 
-def count_words_in_file(file_name: str):
-    """
-    Count quantity of lines on file
-    :param file_name: name of file
-    :return: words quantity
-    """
-    counter_line = 0
-    with open(file_name) as file:
-        for line in file:
-            counter_line += 1
-    return counter_line
-
-
 def shuffle_letters(word: str):
     """
     Shuffle letters in word
@@ -28,18 +15,17 @@ def shuffle_letters(word: str):
     return shuffle_word
 
 
-def chose_word(file_name: str, word_number: int):
+def get_word(file_name: str):
     """
-    Choose word from file with index
+    Get words from file
     :param file_name: name if file
-    :param word_number: word(line) number in file
-    :return: selected word
+    :return: list of word
     """
     words = []
     with open(file_name, "r", encoding="utf-8") as file:
         for line in file:
             words.append(line.strip())
-    return words[word_number]
+    return words
 
 
 def write_history(name: str, score: int):
